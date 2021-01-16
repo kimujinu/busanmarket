@@ -10,6 +10,8 @@
 
 ## 목차
 
+[Token 발급 API](#Token 발급 API)
+
 [1.Token 발급 API](#Token 발급 API)</br>
 [2.Token 검증 API](#Token 검증 API)
 
