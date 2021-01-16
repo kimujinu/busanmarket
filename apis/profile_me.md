@@ -1,8 +1,6 @@
 # 사용자 정보 반환 API
 
-현재 로그인한 사용자의 정보를 불러옵니다. 사용자 정보 요청 REST API는 사용자 액세스 토큰을 사용하는 방법, 앱 어드민 키를 사용하는 방법 두 가지로 제공됩니다. 어드민 키는 보안에 유의하여 사용해야 하므로 서버에서 호출할 때만 사용합니다.
-
-사용자 액세스 토큰 또는 어드민 키와 회원번호를 헤더(Header)에 담아 `GET`으로 요청합니다. 
+현재 로그인한 사용자의 정보를 불러옵니다. 사용자 정보 요청 REST API는 사용자  토큰을 사용하는 방법, 앱 Client/Secret을 사용하는 방법 두 가지로 제공됩니다. 앱 Client/Secret은 보안에 유의하여 사용해야 하므로 서버에서 호출할 때만 사용합니다.
 
 # 사용자 정보조회 API (User Token 이용)
 
@@ -79,7 +77,7 @@ ProfileBaseDto resultProfileMe = result.getBody();
 
 
 
-# 사용자 정보조회 API (Basic Token 이용)
+# 사용자 정보조회 API (앱 Client/Secret 이용)
 
 ## Reequest
 

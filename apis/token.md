@@ -10,11 +10,12 @@
 
 ## 목차
 
-[1.Token 발급 API](#Token-발급-API)</br>
-[2.Token 검증 API](#Token-검증-API)</br>
-[3.Token 갱신 API](#Token-갱신-API)</br>
+[1.Token 발급 API (User Access Token)](#Token-발급-API-(User-Access-Token))</br>
+[2.Token 발급 API (Application-Access-Token)](#Token-발급-API-(Application-Access-Token))</br>
+[3.Token 검증 API](#Token-검증-API)</br>
+[4.Token 갱신 API](#Token-갱신-API)</br>
 
-# Token 발급 API
+# Token 발급 API (User Access Token)
 
 ## Request
 
@@ -97,6 +98,80 @@ OAuth2AccessToken token = result.getBody();
 ```
 
 
+
+# Token 발급 API (Application Access Token)
+
+## Request
+
+##### URL
+
+```http
+POST /v1/oauth/token HTTP/1.1
+Host: bastion.devopscloudlab.com
+Content-type: application/x-www-form-urlencoded;charset=utf-8
+```
+
+##### Parameter
+
+| Name       | Type     | Description                 | Required |
+| :--------- | :------- | :-------------------------- | :------- |
+| grant_type | `String` | `client_credentials`로 전달 | O        |
+| scope      | `String` | `client`로 전달             | O        |
+
+
+
+## Response
+
+| Name         | Type      | Description                                                  |
+| :----------- | :-------- | :----------------------------------------------------------- |
+| token_type   | `String`  | 토큰 타입, `bearer`로 고정                                   |
+| access_token | `String`  | 어플리케이션 액세스 토큰 값                                  |
+| expires_in   | `Integer` | 액세스 토큰 만료 시간(초)                                    |
+| scope        | `String`  | 인증된 어플리케이션의 정보 조회 권한 범위 범위가 여러 개일 경우, 공백으로 구분 |
+
+
+
+## Sample
+
+### Request
+
+```shell
+curl -v -X POST https://bastion.devopscloudlab.com/v1/oauth/token \
+ -d 'grant_type=client_credentials' \
+ -d 'scope=client'
+```
+
+
+
+### Response
+
+```java
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+{"access_token":"eyJhbGci3Bo","token_type":"bearer","expires_in":35998,"scope":"client","jti":"35084cb6-9ae2-48f3-bacd-d6fa8e10b658"}
+```
+
+
+
+### Sample Code
+
+#### Java
+
+```java
+MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
+body.add("grant_type", "client_credentials");
+body.add("scope", "client");
+
+HttpHeaders headers = new HttpHeaders();
+headers.add("Authorization",
+            String.format("Basic %s", new String(Base64.encode("client:secret".getBytes()))));
+
+HttpEntity httpEntity = new HttpEntity(body, headers);
+RestTemplate restTemplate = new RestTemplate();
+
+ResponseEntity<OAuth2AccessToken> result = restTemplate.postForEntity(resourceProperties.getAccessTokenUri(), httpEntity, OAuth2AccessToken.class);
+OAuth2AccessToken token = result.getBody();
+```
 
 
 
