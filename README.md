@@ -1,7 +1,3 @@
----
-typora-root-url: ./images/flow.png
----
-
 # busanmarket
 
 
@@ -42,4 +38,4 @@ since : 2021-01-16
 
 ---
 
-[./apis/profile_me.md](사용자정보조회)
+[사용자정보조회](./apis/profile_me.md)
