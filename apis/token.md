@@ -6,6 +6,11 @@
 
 사용자가 로그인에 성공하면 발급되는 액세스 토큰(Access Token)과 리프레시 토큰(Refresh Token)은 각각 역할과 유효기간이 다릅니다. 실제 사용자 인증을 맡는 액세스 토큰은 비교적 짧은 만료 시간을 가집니다. 하지만 유효한 리프레시 토큰이 있다면, 사용자가 다시 로그인했을 때 리프레시 토큰으로 액세스 토큰을 다시 발급받을 수 있습니다. 
 
+
+[TOC]
+
+
+
 # Token 발급 API
 
 ## Request
@@ -164,6 +169,91 @@ body.add("grant_type", "authorization_code");
 body.add("redirect_uri", resourceProperties.getRedirectUri());
 body.add("scope", "read");
 body.add("code", code);
+
+HttpHeaders headers = new HttpHeaders();
+headers.add("Authorization",
+            String.format("Basic %s", new String(Base64.encode("client:secret".getBytes()))));
+
+HttpEntity httpEntity = new HttpEntity(body, headers);
+RestTemplate restTemplate = new RestTemplate();
+
+ResponseEntity<OAuth2AccessToken> result = restTemplate.postForEntity(resourceProperties.getAccessTokenUri(), httpEntity, OAuth2AccessToken.class);
+OAuth2AccessToken token = result.getBody();
+```
+
+
+
+# Token 갱신 API
+
+## Request
+
+##### URL
+
+```http
+POST /v1/oauth/token HTTP/1.1
+Host: bastion.devopscloudlab.com
+Authorization: Basic {SECRET_KEY}
+Content-type: application/x-www-form-urlencoded;charset=utf-8
+```
+
+#### Header
+
+| Name          | Description                                                  | Required |
+| ------------- | ------------------------------------------------------------ | -------- |
+| Authorization | SECRET_KEY = client_id:secret 을 Base64로 인코딩한 값<br />Authorization: Basic {SECRET_KEY} | O        |
+
+##### Parameter
+
+| Name          | Type     | Description                     | Required |
+| :------------ | :------- | :------------------------------ | :------- |
+| grant_type    | `String` | `refresh_token`로 전달          | O        |
+| refresh_token | `String` | 인증서버에서 받급받은 client_id | O        |
+
+
+
+## Response
+
+| Name                     | Type      | Description                                                  |
+| :----------------------- | :-------- | :----------------------------------------------------------- |
+| token_type               | `String`  | 토큰 타입, `bearer`로 고정                                   |
+| access_token             | `String`  | 사용자 액세스 토큰 값                                        |
+| expires_in               | `Integer` | 액세스 토큰 만료 시간(초)                                    |
+| refresh_token            | `String`  | 사용자 리프레시 토큰 값                                      |
+| refresh_token_expires_in | `Integer` | 리프레시 토큰 만료 시간(초)                                  |
+| scope                    | `String`  | 인증된 사용자의 정보 조회 권한 범위 범위가 여러 개일 경우, 공백으로 구분 |
+
+
+
+## Sample
+
+### Request
+
+```shell
+curl -v -X POST https://bastion.devopscloudlab.com/v1/oauth/token \
+ -d 'grant_type=refresh_token' \
+ -d 'refresh_token={REFRESH_TOKEN}'
+```
+
+
+
+### Response
+
+```java
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+{"access_token":"eyJhbGci3Bo","token_type":"bearer","refresh_token":"eyJhbGciKZW1c5v_Yw","expires_in":35998,"scope":"read","uuid":"53w","jti":"35084cb6-9ae2-48f3-bacd-d6fa8e10b658"}
+```
+
+
+
+### Sample Code
+
+#### Java
+
+```java
+MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
+body.add("grant_type", "refresh_token");
+body.add("refresh_token", resourceProperties.getRedirectUri());
 
 HttpHeaders headers = new HttpHeaders();
 headers.add("Authorization",
