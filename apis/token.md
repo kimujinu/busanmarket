@@ -34,7 +34,6 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 | client_id    | `String` | 인증서버에서 받급받은 client_id | O        |
 | redirect_uri | `String` | 인증코드 Redirect URI           | O        |
 | code         | `String` | 인증코드                        | O        |
-|              |          |                                 |          |
 
 
 

@@ -34,22 +34,27 @@ since : 2021-01-16
 
 ## API
 
-### 로그인페이지 변경
+> 로그인 리다이렉션 변경 -> Token 관련 API 구현 -> 사용자 정보 API 구현 순으로 개발을 진행해야 편합니다.
+
+### 로그인 리다이렉션 변경
 
 프로그램에서 로그인페이지로 리다이렉션 시키는 부분을 아래의 url로 변경한다.
 
 ```shell
-https://auth.busan.go.kr/v1/oauth/authorize?client_id=**#{client_id}**&response_type=code&scope=read&redirect_uri=**#{redirect_uri}**
+https://auth.busan.go.kr/v1/oauth/authorize?client_id={client_id}&response_type=code&scope=read&redirect_uri={REDIRECT_URI}
 ```
 
-#### Parameter
+##### Parameter
 
-| Name         | Description                                  | Required |
-| ------------ | -------------------------------------------- | -------- |
-| client_id    | 인증서버에서 발급받은 어플리케이션 client id | O        |
-| redirect_uri | 인증서버에서 발급한 코드를 callback 받을 uri |          |
+| Name          | Type     | Description                     | Required |
+| :------------ | :------- | :------------------------------ | :------- |
+| client_id     | `String` | 인증서버에서 받급받은 client_id | O        |
+| redirect_uri  | `String` | 인증코드 Redirect URI           | O        |
+| response_type | `String` | `code`로 전달                   | O        |
+| scope         | `String` | `read`로 전달                   | O        |
 
 
 
+[Token 관련 API](./apis/token.md)<br/>
 [사용자 정보 API](./apis/profile_me.md)
 
