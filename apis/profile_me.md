@@ -2,11 +2,11 @@
 
 현재 로그인한 사용자의 정보를 불러옵니다. 사용자 정보 요청 REST API는 사용자  토큰을 사용하는 방법, 앱 Client/Secret을 사용하는 방법 두 가지로 제공됩니다. 앱 Client/Secret은 보안에 유의하여 사용해야 하므로 서버에서 호출할 때만 사용합니다.
 
-[1.사용자 정보조회 API (User Access Token 이용)](#사용자-정보조회-API-(User-Access-Token-이용))</br>
-[2.사용자 정보조회 API (Application Access Token 이용)](#사용자-정보조회-API-(Application-Access-Token-이용)))</br>
+[1.User Access Token 이용](#User-Access-Token-이용)</br>
+[2.Application Access Token 이용](#Application-Access-Token-이용)</br>
 
 
-# 사용자 정보조회 API (User Access Token 이용)
+# User Access Token 이용
 
 ## Reequest
 
@@ -81,7 +81,7 @@ ProfileBaseDto resultProfileMe = result.getBody();
 
 
 
-# 사용자 정보조회 API (Application Access Token 이용)
+# Application Access Token 이용
 
 client_id, secret을 통하여 발급받은 Application Access Token을 이용하여 사용자 정보를 조회하는 API 입니다.
 

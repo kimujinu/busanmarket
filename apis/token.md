@@ -10,12 +10,12 @@
 
 ## 목차
 
-[1.Token 발급 API (User Access Token)](#Token-발급-API-(User-Access-Token))</br>
-[2.Token 발급 API (Application-Access-Token)](#Token-발급-API-(Application-Access-Token))</br>
+[1.User Access Token 발급 API](#User-Access-Token-발급-API)</br>
+[2.Application Access Token 발급 API](#Application-Access-Token-발급-API)</br>
 [3.Token 검증 API](#Token-검증-API)</br>
 [4.Token 갱신 API](#Token-갱신-API)</br>
 
-# Token 발급 API (User Access Token)
+# User Access Token 발급 API
 
 ## Request
 
@@ -99,7 +99,7 @@ OAuth2AccessToken token = result.getBody();
 
 
 
-# Token 발급 API (Application Access Token)
+# Application Access Token 발급 API
 
 ## Request
 
