@@ -2,13 +2,17 @@
 
 현재 로그인한 사용자의 정보를 불러옵니다. 사용자 정보 요청 REST API는 사용자  토큰을 사용하는 방법, 앱 Client/Secret을 사용하는 방법 두 가지로 제공됩니다. 앱 Client/Secret은 보안에 유의하여 사용해야 하므로 서버에서 호출할 때만 사용합니다.
 
-# 사용자 정보조회 API (User Token 이용)
+[1.사용자 정보조회 API (User Access Token 이용)](#사용자-정보조회-API-(User-Access-Token-이용))</br>
+[2.사용자 정보조회 API (Application Access Token 이용)](#사용자-정보조회-API-(Application-Access-Token-이용)))</br>
+
+
+# 사용자 정보조회 API (User Access Token 이용)
 
 ## Reequest
 
 #### URL
 
-```html
+```http
 GET /v1/profile/me HTTP/1.1
 Host: bastion.devopscloudlab.com
 Authorization: Bearer {ACCESS_TOKEN}
@@ -77,7 +81,9 @@ ProfileBaseDto resultProfileMe = result.getBody();
 
 
 
-# 사용자 정보조회 API (앱 Client/Secret 이용)
+# 사용자 정보조회 API (Application Access Token 이용)
+
+client_id, secret을 통하여 발급받은 Application Access Token을 이용하여 사용자 정보를 조회하는 API 입니다.
 
 ## Reequest
 
@@ -86,7 +92,7 @@ ProfileBaseDto resultProfileMe = result.getBody();
 ```http
 GET /v1/profile/{USER_ID} HTTP/1.1
 Host: bastion.devopscloudlab.com
-Authorization: Basic {SECRET_KEY}
+Authorization: Bearer {ACCESS_TOKEN}
 Content-type: application/x-www-form-urlencoded;charset=utf-8
 ```
 
@@ -94,7 +100,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 | Name          | Description                                                  | Required |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Authorization | SECRET_KEY = client_id:secret 을 Base64로 인코딩한 값<br />Authorization: Basic {SECRET_KEY} | O        |
+| Authorization | Application 인증 수단, Application Access Token 값<br />Authorization: Bearer {ACCESS_TOKEN} | O        |
 
 ##### Path Variable
 
@@ -120,7 +126,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ``` shell
 curl -v -X GET https://bastion.devopscloudlab.com/v1/profile/hong \
-  -H "Authorization: Basic {SECRET_KEY}"
+  -H "Authorization: Bearer {APPICATION_ACCESS_TOKEN}"
 ```
 
 #### Response
