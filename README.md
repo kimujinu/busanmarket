@@ -10,7 +10,7 @@ since : 2021-01-16
 ### Case1. 로그인 (사용자토큰)
 
 1. 사용자가 어플리케이션에서 로그인 페이지를 요청합니다.
-2. 어플리케이션은 **인증서버로 로그인 페이지로** 리다이렉션 시킵니다.
+2. 어플리케이션은 **인증서버 로그인 페이지로** 리다이렉션 시킵니다.
 3. 로그인 페이지에서 사용자는 아이디와 패스워드를 입력하고 로그인을 누릅니다.
 4. 인증서버는 사용자를 검증하고, 요청한 정보로 미리 등록된 어플리케이션으로 인증코드를 반환한다.
 5. 어플리케이션에서는 받은 인증코드를 헤더에 추가하여 토근을 요청한다.
@@ -49,7 +49,7 @@ since : 2021-01-16
 프로그램에서 로그인페이지로 리다이렉션 시키는 부분을 아래의 url로 변경한다.
 
 ```shell
-https://auth.busan.go.kr/v1/oauth/authorize?client_id={client_id}&response_type=code&scope=read&redirect_uri={REDIRECT_URI}
+http://bastion.devopscloudlab.com/v1/oauth/authorize?client_id={client_id}&response_type=code&scope=read&redirect_uri={REDIRECT_URI}
 ```
 
 ##### Parameter
