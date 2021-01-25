@@ -52,7 +52,7 @@ since : 2021-01-16
 프로그램에서 로그인페이지로 리다이렉션 시키는 부분을 아래의 url로 변경한다.
 
 ```shell
-http://bastion.devopscloudlab.com/v1/oauth/authorize?client_id={client_id}&response_type=code&scope=read&redirect_uri={REDIRECT_URI}
+http://bastion.o2obusan.com/v1/oauth/authorize?client_id={client_id}&response_type=code&scope=read&redirect_uri={REDIRECT_URI}
 ```
 
 ##### Parameter

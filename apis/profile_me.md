@@ -14,7 +14,7 @@
 
 ```http
 GET /v1/profile/me HTTP/1.1
-Host: bastion.devopscloudlab.com
+Host: bastion.o2obusan.com
 Authorization: Bearer {ACCESS_TOKEN}
 Content-type: application/x-www-form-urlencoded;charset=utf-8
 ```
@@ -42,7 +42,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 #### Request
 
 ``` shell
-curl -v -X GET https://bastion.devopscloudlab.com/v1/profile/me \
+curl -v -X GET https://bastion.o2obusan.com/v1/profile/me \
   -H "Authorization: Bearer {ACCESS_TOKEN}"
 ```
 
@@ -91,7 +91,7 @@ client_id, secret을 통하여 발급받은 Application Access Token을 이용�
 
 ```http
 GET /v1/profile/{USER_ID} HTTP/1.1
-Host: bastion.devopscloudlab.com
+Host: bastion.o2obusan.com
 Authorization: Bearer {ACCESS_TOKEN}
 Content-type: application/x-www-form-urlencoded;charset=utf-8
 ```
@@ -125,7 +125,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 #### Request
 
 ``` shell
-curl -v -X GET https://bastion.devopscloudlab.com/v1/profile/hong \
+curl -v -X GET https://bastion.o2obusan.com/v1/profile/hong \
   -H "Authorization: Bearer {APPICATION_ACCESS_TOKEN}"
 ```
 

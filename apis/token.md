@@ -23,7 +23,7 @@
 
 ```http
 POST /v1/oauth/token HTTP/1.1
-Host: bastion.devopscloudlab.com
+Host: bastion.o2obusan.com
 Content-type: application/x-www-form-urlencoded;charset=utf-8
 ```
 
@@ -56,7 +56,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 ### Request
 
 ```shell
-curl -v -X POST https://bastion.devopscloudlab.com/v1/oauth/token \
+curl -v -X POST https://bastion.o2obusan.com/v1/oauth/token \
  -d 'grant_type=authorization_code' \
  -d 'client_id={CLIENT_ID}' \
  -d 'redirect_uri={REDIRECT_URI}' \
@@ -107,7 +107,7 @@ OAuth2AccessToken token = result.getBody();
 
 ```http
 POST /v1/oauth/token HTTP/1.1
-Host: bastion.devopscloudlab.com
+Host: bastion.o2obusan.com
 Content-type: application/x-www-form-urlencoded;charset=utf-8
 ```
 
@@ -136,7 +136,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 ### Request
 
 ```shell
-curl -v -X POST https://bastion.devopscloudlab.com/v1/oauth/token \
+curl -v -X POST https://bastion.o2obusan.com/v1/oauth/token \
  -d 'grant_type=client_credentials' \
  -d 'scope=client'
 ```
@@ -183,7 +183,7 @@ OAuth2AccessToken token = result.getBody();
 
 ```http
 POST /v1/oauth/token HTTP/1.1
-Host: bastion.devopscloudlab.com
+Host: bastion.o2obusan.com
 Content-type: application/x-www-form-urlencoded;charset=utf-8
 ```
 
@@ -217,7 +217,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 ### Request
 
 ```shell
-curl -v -X POST https://bastion.devopscloudlab.com/v1/oauth/token \
+curl -v -X POST https://bastion.o2obusan.com/v1/oauth/token \
  -d 'grant_type=authorization_code' \
  -d 'client_id={CLIENT_ID}' \
  -d 'redirect_uri={REDIRECT_URI}' \
@@ -268,7 +268,7 @@ OAuth2AccessToken token = result.getBody();
 
 ```http
 POST /v1/oauth/token HTTP/1.1
-Host: bastion.devopscloudlab.com
+Host: bastion.o2obusan.com
 Authorization: Basic {SECRET_KEY}
 Content-type: application/x-www-form-urlencoded;charset=utf-8
 ```
@@ -306,7 +306,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 ### Request
 
 ```shell
-curl -v -X POST https://bastion.devopscloudlab.com/v1/oauth/token \
+curl -v -X POST https://bastion.o2obusan.com/v1/oauth/token \
  -d 'grant_type=refresh_token' \
  -d 'refresh_token={REFRESH_TOKEN}'
 ```
