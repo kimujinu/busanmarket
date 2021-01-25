@@ -42,7 +42,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 #### Request
 
 ``` shell
-curl -v -X GET https://bastion.o2obusan.com/v1/profile/me \
+curl -v -X GET http://bastion.o2obusan.com/v1/profile/me \
   -H "Authorization: Bearer {ACCESS_TOKEN}"
 ```
 
@@ -70,7 +70,7 @@ headers.add("Authorization", String.format("Bearer %s", token));
 HttpEntity httpEntity = new HttpEntity(null, headers);
 
 RestTemplate restTemplate = new RestTemplate();
-ResponseEntity<ProfileBaseDto> result = restTemplate.exchange("https://gapi.gsitm.com/v1/profile/me", HttpMethod.GET, httpEntity, ProfileBaseDto.class);
+ResponseEntity<ProfileBaseDto> result = restTemplate.exchange("http://bastion.o2obusan.com/v1/profile/me", HttpMethod.GET, httpEntity, ProfileBaseDto.class);
 
 if(result.getBody() == null){
     return;
@@ -112,11 +112,13 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ## Response
 
-| Name     | Type     | Description    |
-| :------- | :------- | :------------- |
-| uuid     | `String` | 회원 식별 id   |
-| id       | `String` | 회원 로그인 id |
-| username | `String` | 사용자 이름    |
+| Name      | Type     | Description                                 |
+| :-------- | :------- | :------------------------------------------ |
+| uuid      | `String` | 회원 식별 id                                |
+| id        | `String` | 회원 로그인 id (제공되지 않음.) 고정값 null |
+| username  | `String` | 사용자 이름                                 |
+| email     | `String` | 이메일주소                                  |
+| çellphone | `String` | 휴대폰번호                                  |
 
 
 
@@ -125,7 +127,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 #### Request
 
 ``` shell
-curl -v -X GET https://bastion.o2obusan.com/v1/profile/hong \
+curl -v -X GET http://bastion.o2obusan.com/v1/profile/hong \
   -H "Authorization: Bearer {APPICATION_ACCESS_TOKEN}"
 ```
 
@@ -134,9 +136,11 @@ curl -v -X GET https://bastion.o2obusan.com/v1/profile/hong \
 ```json
 HTTP/1.1 200 OK
 {
-    "uuid": "b77eafed-69ab-422d-8448-1ec1f0a2eb8c",
-    "id" : "hong"
-    "username": "홍길동",
+    "uuid": "53w",
+    "id": null,
+    "username": "관리자",
+    "email": "hong",
+    "cellphone": "010-1234-0000"
 }
 ```
 
@@ -154,7 +158,7 @@ headers.add("Authorization", String.format("Bearer %s", token));
 HttpEntity httpEntity = new HttpEntity(null, headers);
 
 RestTemplate restTemplate = new RestTemplate();
-ResponseEntity<ProfileBaseDto> result = restTemplate.exchange("https://gapi.gsitm.com/v1/profile/"+userId, HttpMethod.GET, httpEntity, ProfileBaseDto.class);
+ResponseEntity<ProfileBaseDto> result = restTemplate.exchange("http://bastion.o2obusan.com/v1/profile/"+userId, HttpMethod.GET, httpEntity, ProfileBaseDto.class);
 
 if(result.getBody() == null){
     return;

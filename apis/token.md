@@ -56,7 +56,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 ### Request
 
 ```shell
-curl -v -X POST https://bastion.o2obusan.com/v1/oauth/token \
+curl -v -X POST http://bastion.o2obusan.com/v1/oauth/token \
  -d 'grant_type=authorization_code' \
  -d 'client_id={CLIENT_ID}' \
  -d 'redirect_uri={REDIRECT_URI}' \
@@ -136,7 +136,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 ### Request
 
 ```shell
-curl -v -X POST https://bastion.o2obusan.com/v1/oauth/token \
+curl -v -X POST http://bastion.o2obusan.com/v1/oauth/token \
  -d 'grant_type=client_credentials' \
  -d 'scope=client'
 ```
@@ -217,7 +217,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 ### Request
 
 ```shell
-curl -v -X POST https://bastion.o2obusan.com/v1/oauth/token \
+curl -v -X POST http://bastion.o2obusan.com/v1/oauth/token \
  -d 'grant_type=authorization_code' \
  -d 'client_id={CLIENT_ID}' \
  -d 'redirect_uri={REDIRECT_URI}' \
@@ -306,7 +306,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 ### Request
 
 ```shell
-curl -v -X POST https://bastion.o2obusan.com/v1/oauth/token \
+curl -v -X POST http://bastion.o2obusan.com/v1/oauth/token \
  -d 'grant_type=refresh_token' \
  -d 'refresh_token={REFRESH_TOKEN}'
 ```
