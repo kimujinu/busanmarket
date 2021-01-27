@@ -59,5 +59,5 @@ http://bastion.o2obusan.com/v1/oauth/authorize?client_id={client_id}&response_ty
 
 
 
-[Token 관련 API](./apis/token.md)<br/>
-[사용자 정보 API](./apis/profile_me.md)
+[Token 관련 API](../apis/token.md)<br/>
+[사용자 정보 API](../apis/profile_me.md)
