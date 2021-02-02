@@ -347,3 +347,72 @@ OAuth2AccessToken token = result.getBody();
 
 
 
+# Token 만료 API
+
+## Request
+
+##### URL
+
+```http
+DELETE /v1/oauth/revoke HTTP/1.1
+Host: bastion.o2obusan.com
+Content-type: application/x-www-form-urlencoded;charset=utf-8
+```
+
+#### 
+
+### Parameter
+
+| Name         | Type     | Description                     | Required |
+| :----------- | :------- | :------------------------------ | :------- |
+| client_id    | `String` | 인증서버에서 받급받은 client_id | O        |
+| revoke_token | `String` | 만료대상토큰                    |          |
+
+
+
+## Response
+
+| Name         | Type     | Description |
+| :----------- | :------- | :---------- |
+| revoke_token | `String` | 만료토큰    |
+
+## Sample
+
+### Request
+
+```shell
+curl -v -X DELETE http://bastion.o2obusan.com/v1/oauth/revoke \
+ -d 'client_id={CLIENT_ID}' \
+ -d 'revoke_token={REVOKE_TOKEN}' \
+```
+
+
+
+### Response
+
+```java
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+{"revoke_token":"eyJhbGci3Bo"}
+```
+
+
+
+### Sample Code
+
+#### Java
+
+```java
+MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
+body.add("client_id", resourceProperties.getClientId());
+body.add("revoke_token", token);
+
+HttpEntity httpEntity = new HttpEntity(body);
+RestTemplate restTemplate = new RestTemplate();
+
+ResponseEntity<OAuth2AccessToken> result = restTemplate.deleteForEntity(resourceProperties.getRevokeTokenUri(), httpEntity, OAuth2AccessToken.class);
+OAuth2AccessToken token = result.getBody();
+```
+
+
+
