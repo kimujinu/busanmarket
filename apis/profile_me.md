@@ -29,11 +29,13 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ## Response
 
-| Name     | Type     | Description    |
-| :------- | :------- | :------------- |
-| uuid     | `String` | 회원 식별 id   |
-| id       | `String` | 회원 로그인 id |
-| username | `String` | 사용자 이름    |
+| Name      | Type     | Length | Description                                 |
+| :-------- | :------- | ------ | :------------------------------------------ |
+| uuid      | `String` | 40     | 회원 식별 id                                |
+| id        | `String` | 0      | 회원 로그인 id (제공되지 않음.) 고정값 null |
+| username  | `String` | 10     | 사용자 이름                                 |
+| email     | `String` | 100    | 이메일주소                                  |
+| çellphone | `String` | 13     | 휴대폰번호(010-1234-1234)                   |
 
 
 
@@ -51,9 +53,11 @@ curl -v -X GET http://bastion.o2obusan.com/v1/profile/me \
 ```json
 HTTP/1.1 200 OK
 {
-    "uuid": "b77eafed-69ab-422d-8448-1ec1f0a2eb8c",
-    "id" : "hong"
-    "username": "홍길동",
+    "uuid": "53w",
+    "id": null,
+    "username": "관리자",
+    "email": "hong",
+    "cellphone": "010-1234-0000"
 }
 ```
 
@@ -90,7 +94,7 @@ client_id, secret을 통하여 발급받은 Application Access Token을 이용�
 #### URL
 
 ```http
-GET /v1/profile/{USER_ID} HTTP/1.1
+GET /v1/profile/{USER_UUID} HTTP/1.1
 Host: bastion.o2obusan.com
 Authorization: Bearer {ACCESS_TOKEN}
 Content-type: application/x-www-form-urlencoded;charset=utf-8
@@ -104,21 +108,21 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ##### Path Variable
 
-| Name    | Type     | Description          | Required |
-| :------ | :------- | :------------------- | :------- |
-| USER_ID | `String` | 조회하려는 사용자 ID | O        |
+| Name      | Type     | Description          | Required |
+| :-------- | :------- | :------------------- | :------- |
+| USER_UUID | `String` | 조회하려는 사용자 ID | O        |
 
 
 
 ## Response
 
-| Name      | Type     | Description                                 |
-| :-------- | :------- | :------------------------------------------ |
-| uuid      | `String` | 회원 식별 id                                |
-| id        | `String` | 회원 로그인 id (제공되지 않음.) 고정값 null |
-| username  | `String` | 사용자 이름                                 |
-| email     | `String` | 이메일주소                                  |
-| çellphone | `String` | 휴대폰번호                                  |
+| Name      | Type     | Length | Description                                 |
+| :-------- | :------- | ------ | :------------------------------------------ |
+| uuid      | `String` | 40     | 회원 식별 id                                |
+| id        | `String` | 0      | 회원 로그인 id (제공되지 않음.) 고정값 null |
+| username  | `String` | 10     | 사용자 이름                                 |
+| email     | `String` | 100    | 이메일주소                                  |
+| çellphone | `String` | 13     | 휴대폰번호(010-1234-1234)                   |
 
 
 

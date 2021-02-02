@@ -68,26 +68,26 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ##### Parameter
 
-| Name          | Type      | Description                 | Required |
-| :------------ | :-------- | :-------------------------- | :------- |
-| storeId       | `String`  | 상점ID(가맹점번호)          | O        |
-| orderNo       | `String`  | 주문번호                    | O        |
-| orderPrice    | `Integer` | 주문금액                    | O        |
-| orderDateTime | `String`  | 주문일시 (yyyyMMddHH24miss) | O        |
+| Name          | Type      | Length | Description                 | Required |
+| :------------ | :-------- | ------ | :-------------------------- | :------- |
+| storeId       | `String`  | 40     | 상점ID(가맹점번호)          | O        |
+| orderNo       | `String`  | 100    | 주문번호                    | O        |
+| orderPrice    | `Integer` |        | 주문금액                    | O        |
+| orderDateTime | `String`  | 16     | 주문일시 (yyyyMMddHH24miss) | O        |
 
 
 
 ## Response
 
-| Name          | Type     | Description                 |
-| :------------ | :------- | :-------------------------- |
-| resultCode    | `String` | 결과코드                    |
-| resultMessage | `String` | 결과메시지                  |
-| orderUuid     | `String` | 통합주문Id                  |
-| storeId       | `String` | 상점ID(가맹점번호)          |
-| orderNo       | `String` | 주문번호                    |
-| status        | `String` | null 고정                   |
-| orderDateTime | `String` | 주문일시 (yyyyMMddHH24miss) |
+| Name          | Type     | Length | Description                 |
+| :------------ | :------- | ------ | :-------------------------- |
+| resultCode    | `String` | 4      | 결과코드                    |
+| resultMessage | `String` | 100    | 결과메시지                  |
+| orderUuid     | `String` | 20     | 통합주문Id                  |
+| storeId       | `String` | 40     | 상점ID(가맹점번호)          |
+| orderNo       | `String` | 100    | 주문번호                    |
+| status        | `String` | 10     | null 고정                   |
+| orderDateTime | `String` | 16     | 주문일시 (yyyyMMddHH24miss) |
 
 
 
@@ -207,42 +207,42 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ##### Parameter
 
-| Name           | Type      | Description                                               | Required |
-| :------------- | :-------- | :-------------------------------------------------------- | :------- |
-| storeId        | `String`  | 상점ID(가맹점번호)                                        | O        |
-| storeName      | `String`  | 상점이름                                                  | O        |
-| orderNo        | `String`  | 주문번호                                                  | O        |
-| orderPrice     | `Integer` | 주문금액                                                  | O        |
-| orderTitleText | `String`  | 주문타이틀 (예: 반반치킨외 1개 23,500원)                  | O        |
-| orderSubText   | `String`  | 주문보조타이틀 (옵션 텍스트 표시, 예: 콜라외 2개 5,000원) |          |
-| status         | `String`  | 주문상태 Text (주문완료, 주문접수등등 텍스트로 전송)      | O        |
-| imageUrl       | `String`  | 대표이미지 URL                                            |          |
-| storeUrl       | `String`  | 상점페이지이동 URL                                        |          |
-| detailUrl      | `String`  | 주문 상세페이지 URL                                       | O        |
-| deliveryUrl    | `String`  | 배송상세페이지 URL                                        |          |
-| orderDateTime  | `String`  | 주문일시 (yyyyMMddHH24miss)                               | O        |
+| Name           | Type      | Length | Description                                               | Required |
+| :------------- | :-------- | ------ | :-------------------------------------------------------- | :------- |
+| storeId        | `String`  | 40     | 상점ID(가맹점번호)                                        | O        |
+| storeName      | `String`  | 50     | 상점이름                                                  | O        |
+| orderNo        | `String`  | 100    | 주문번호                                                  | O        |
+| orderPrice     | `Integer` |        | 주문금액                                                  | O        |
+| orderTitleText | `String`  | 100    | 주문타이틀 (예: 반반치킨외 1개 23,500원)                  | O        |
+| orderSubText   | `String`  | 100    | 주문보조타이틀 (옵션 텍스트 표시, 예: 콜라외 2개 5,000원) |          |
+| status         | `String`  | 10     | 주문상태 Text (주문완료, 주문접수등등 텍스트로 전송)      | O        |
+| imageUrl       | `String`  | 200    | 대표이미지 URL                                            |          |
+| storeUrl       | `String`  | 200    | 상점페이지이동 URL                                        |          |
+| detailUrl      | `String`  | 200    | 주문 상세페이지 URL                                       | O        |
+| deliveryUrl    | `String`  | 200    | 배송상세페이지 URL                                        |          |
+| orderDateTime  | `String`  | 16     | 주문일시 (yyyyMMddHH24miss)                               | O        |
 
 
 
 ## Response
 
-| Name      | Type     | Description  |
-| :-------- | :------- | :----------- |
-| resultCode     | `String`  | 결과코드                                                  |
-| resultMessage  | `String`  | 결과메시지                                                |
-| orderUuid | `String` | 공통주문번호 |
-| storeId        | `String`  | 상점ID(가맹점번호)                                        |
-| storeName      | `String`  | 상점이름                                                  |
-| orderNo        | `String`  | 주문번호                                                  |
-| orderPrice     | `Integer` | 주문금액                                                  |
-| orderTitleText | `String`  | 주문타이틀 (예: 반반치킨외 1개 23,500원)                  |
-| orderSubText   | `String`  | 주문보조타이틀 (옵션 텍스트 표시, 예: 콜라외 2개 5,000원) |
-| status         | `String`  | 주문상태 Text (주문완료, 주문접수등등 텍스트로 전송)      |
-| imageUrl       | `String`  | 대표이미지 URL                                            |
-| storeUrl       | `String`  | 상점페이지이동 URL                                        |
-| detailUrl      | `String`  | 주문 상세페이지 URL                                       |
-| deliveryUrl    | `String`  | 배송상세페이지 URL                                        |
-| orderDateTime  | `String`  | 주문일시 (yyyyMMddHH24miss)                               |
+| Name      | Type     |      | Description  |
+| :-------- | :------- | :----------- | ------------ |
+| resultCode     | `String`  | 4 | 결과코드                                                  |
+| resultMessage  | `String`  | 100 | 결과메시지                                                |
+| orderUuid | `String` | 20 | 공통주문번호 |
+| storeId        | `String`  | 40 | 상점ID(가맹점번호)                                        |
+| storeName      | `String`  | 100 | 상점이름                                                  |
+| orderNo        | `String`  | 100 | 주문번호                                                  |
+| orderPrice     | `Integer` |  | 주문금액                                                  |
+| orderTitleText | `String`  | 100 | 주문타이틀 (예: 반반치킨외 1개 23,500원)                  |
+| orderSubText   | `String`  | 100 | 주문보조타이틀 (옵션 텍스트 표시, 예: 콜라외 2개 5,000원) |
+| status         | `String`  | 10 | 주문상태 Text (주문완료, 주문접수등등 텍스트로 전송)      |
+| imageUrl       | `String`  | 200 | 대표이미지 URL                                            |
+| storeUrl       | `String`  | 200 | 상점페이지이동 URL                                        |
+| detailUrl      | `String`  | 200 | 주문 상세페이지 URL                                       |
+| deliveryUrl    | `String`  | 200 | 배송상세페이지 URL                                        |
+| orderDateTime  | `String`  | 16 | 주문일시 (yyyyMMddHH24miss)                               |
 
 
 
@@ -357,24 +357,24 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ##### Parameter
 
-| Name   | Type     | Description                                          | Required |
-| :----- | :------- | :--------------------------------------------------- | :------- |
-| status | `String` | 주문상태 Text (주문완료, 주문접수등등 텍스트로 전송) | O        |
+| Name   | Type     | Length | Description                                          | Required |
+| :----- | :------- | ------ | :--------------------------------------------------- | :------- |
+| status | `String` | 10     | 주문상태 Text (주문완료, 주문접수등등 텍스트로 전송) | O        |
 
 
 
 
 ## Response
 
-| Name          | Type     | Description                 |
-| :------------ | :------- | :-------------------------- |
-| resultCode    | `String` | 결과코드                    |
-| resultMessage | `String` | 결과메시지                  |
-| orderUuid     | `String` | 통합주문Id                  |
-| storeId       | `String` | 상점ID(가맹점번호)          |
-| orderNo       | `String` | 주문번호                    |
-| status        | `String` | 주문상태 Text               |
-| orderDateTime | `String` | 주문일시 (yyyyMMddHH24miss) |
+| Name          | Type     | Length | Description                 |
+| :------------ | :------- | ------ | :-------------------------- |
+| resultCode    | `String` | 4      | 결과코드                    |
+| resultMessage | `String` | 100    | 결과메시지                  |
+| orderUuid     | `String` | 20     | 통합주문Id                  |
+| storeId       | `String` | 40     | 상점ID(가맹점번호)          |
+| orderNo       | `String` | 100    | 주문번호                    |
+| status        | `String` | 10     | 주문상태 Text               |
+| orderDateTime | `String` | 16     | 주문일시 (yyyyMMddHH24miss) |
 
 
 
@@ -457,42 +457,42 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ##### Parameter
 
-| Name           | Type      | Description                                               | Required |
-| :------------- | :-------- | :-------------------------------------------------------- | :------- |
-| storeId        | `String`  | 상점ID(가맹점번호)                                        | O        |
-| storeName      | `String`  | 상점이름                                                  | O        |
-| orderNo        | `String`  | 주문번호                                                  | O        |
-| orderPrice     | `Integer` | 주문금액                                                  | O        |
-| orderTitleText | `String`  | 주문타이틀 (예: 반반치킨외 1개 23,500원)                  | O        |
-| orderSubText   | `String`  | 주문보조타이틀 (옵션 텍스트 표시, 예: 콜라외 2개 5,000원) |          |
-| status         | `String`  | 주문상태 Text (주문완료, 주문접수등등 텍스트로 전송)      | O        |
-| imageUrl       | `String`  | 대표이미지 URL                                            |          |
-| storeUrl       | `String`  | 상점페이지이동 URL                                        |          |
-| detailUrl      | `String`  | 주문 상세페이지 URL                                       | O        |
-| deliveryUrl    | `String`  | 배송상세페이지 URL                                        |          |
-| orderDateTime  | `String`  | 주문일시 (yyyyMMddHH24miss)                               | O        |
+| Name           | Type      | Length | Description                                               | Required |
+| :------------- | :-------- | ------ | :-------------------------------------------------------- | :------- |
+| storeId        | `String`  | 40     | 상점ID(가맹점번호)                                        | O        |
+| storeName      | `String`  | 50     | 상점이름                                                  | O        |
+| orderNo        | `String`  | 100    | 주문번호                                                  | O        |
+| orderPrice     | `Integer` |        | 주문금액                                                  | O        |
+| orderTitleText | `String`  | 100    | 주문타이틀 (예: 반반치킨외 1개 23,500원)                  | O        |
+| orderSubText   | `String`  | 100    | 주문보조타이틀 (옵션 텍스트 표시, 예: 콜라외 2개 5,000원) |          |
+| status         | `String`  | 10     | 주문상태 Text (주문완료, 주문접수등등 텍스트로 전송)      | O        |
+| imageUrl       | `String`  | 200    | 대표이미지 URL                                            |          |
+| storeUrl       | `String`  | 200    | 상점페이지이동 URL                                        |          |
+| detailUrl      | `String`  | 200    | 주문 상세페이지 URL                                       | O        |
+| deliveryUrl    | `String`  | 200    | 배송상세페이지 URL                                        |          |
+| orderDateTime  | `String`  | 16     | 주문일시 (yyyyMMddHH24miss)                               | O        |
 
 
 
 ## Response
 
-| Name           | Type      | Description                                               |
-| :------------- | :-------- | :-------------------------------------------------------- |
-| resultCode     | `String`  | 결과코드                                                  |
-| resultMessage  | `String`  | 결과메시지                                                |
-| orderUuid      | `String`  | 공통주문번호                                              |
-| storeId        | `String`  | 상점ID(가맹점번호)                                        |
-| storeName      | `String`  | 상점이름                                                  |
-| orderNo        | `String`  | 주문번호                                                  |
-| orderPrice     | `Integer` | 주문금액                                                  |
-| orderTitleText | `String`  | 주문타이틀 (예: 반반치킨외 1개 23,500원)                  |
-| orderSubText   | `String`  | 주문보조타이틀 (옵션 텍스트 표시, 예: 콜라외 2개 5,000원) |
-| status         | `String`  | 주문상태 Text (주문완료, 주문접수등등 텍스트로 전송)      |
-| imageUrl       | `String`  | 대표이미지 URL                                            |
-| storeUrl       | `String`  | 상점페이지이동 URL                                        |
-| detailUrl      | `String`  | 주문 상세페이지 URL                                       |
-| deliveryUrl    | `String`  | 배송상세페이지 URL                                        |
-| orderDateTime  | `String`  | 주문일시 (yyyyMMddHH24miss)                               |
+| Name           | Type      | Length | Description                                               |
+| :------------- | :-------- | ------ | :-------------------------------------------------------- |
+| resultCode     | `String`  | 4      | 결과코드                                                  |
+| resultMessage  | `String`  | 100    | 결과메시지                                                |
+| orderUuid      | `String`  | 20     | 공통주문번호                                              |
+| storeId        | `String`  | 40     | 상점ID(가맹점번호)                                        |
+| storeName      | `String`  | 50     | 상점이름                                                  |
+| orderNo        | `String`  | 100    | 주문번호                                                  |
+| orderPrice     | `Integer` |        | 주문금액                                                  |
+| orderTitleText | `String`  | 100    | 주문타이틀 (예: 반반치킨외 1개 23,500원)                  |
+| orderSubText   | `String`  | 100    | 주문보조타이틀 (옵션 텍스트 표시, 예: 콜라외 2개 5,000원) |
+| status         | `String`  | 10     | 주문상태 Text (주문완료, 주문접수등등 텍스트로 전송)      |
+| imageUrl       | `String`  | 200    | 대표이미지 URL                                            |
+| storeUrl       | `String`  | 200    | 상점페이지이동 URL                                        |
+| detailUrl      | `String`  | 200    | 주문 상세페이지 URL                                       |
+| deliveryUrl    | `String`  | 200    | 배송상세페이지 URL                                        |
+| orderDateTime  | `String`  | 16     | 주문일시 (yyyyMMddHH24miss)                               |
 
 
 
@@ -607,15 +607,15 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ## Response
 
-| Name          | Type     | Description                 |
-| :------------ | :------- | :-------------------------- |
-| resultCode    | `String` | 결과코드                    |
-| resultMessage | `String` | 결과메시지                  |
-| orderUuid     | `String` | 통합주문Id                  |
-| storeId       | `String` | 상점ID(가맹점번호)          |
-| orderNo       | `String` | 주문번호                    |
-| status        | `String` | 주문상태 Text               |
-| orderDateTime | `String` | 주문일시 (yyyyMMddHH24miss) |
+| Name          | Type     | Length | Description                 |
+| :------------ | :------- | ------ | :-------------------------- |
+| resultCode    | `String` | 4      | 결과코드                    |
+| resultMessage | `String` | 100    | 결과메시지                  |
+| orderUuid     | `String` | 20     | 통합주문Id                  |
+| storeId       | `String` | 40     | 상점ID(가맹점번호)          |
+| orderNo       | `String` | 100    | 주문번호                    |
+| status        | `String` | 10     | 주문상태 Text               |
+| orderDateTime | `String` | 16     | 주문일시 (yyyyMMddHH24miss) |
 
 
 

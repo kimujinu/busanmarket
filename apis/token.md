@@ -41,14 +41,14 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ## Response
 
-| Name                     | Type      | Description                                                  |
-| :----------------------- | :-------- | :----------------------------------------------------------- |
-| token_type               | `String`  | 토큰 타입, `bearer`로 고정                                   |
-| access_token             | `String`  | 사용자 액세스 토큰 값                                        |
-| expires_in               | `Integer` | 액세스 토큰 만료 시간(초)                                    |
-| refresh_token            | `String`  | 사용자 리프레시 토큰 값                                      |
-| refresh_token_expires_in | `Integer` | 리프레시 토큰 만료 시간(초)                                  |
-| scope                    | `String`  | 인증된 사용자의 정보 조회 권한 범위 범위가 여러 개일 경우, 공백으로 구분 |
+| Name                     | Type      | Length | Description                                                  |
+| :----------------------- | :-------- | ------ | :----------------------------------------------------------- |
+| token_type               | `String`  | 6      | 토큰 타입, `bearer`로 고정                                   |
+| access_token             | `String`  | 500    | 사용자 액세스 토큰 값                                        |
+| expires_in               | `Integer` |        | 액세스 토큰 만료 시간(초)                                    |
+| refresh_token            | `String`  | 500    | 사용자 리프레시 토큰 값                                      |
+| refresh_token_expires_in | `Integer` |        | 리프레시 토큰 만료 시간(초)                                  |
+| scope                    | `String`  | 50     | 인증된 사용자의 정보 조회 권한 범위 범위가 여러 개일 경우, 공백으로 구분 |
 
 
 
@@ -123,12 +123,12 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ## Response
 
-| Name         | Type      | Description                                                  |
-| :----------- | :-------- | :----------------------------------------------------------- |
-| token_type   | `String`  | 토큰 타입, `bearer`로 고정                                   |
-| access_token | `String`  | 어플리케이션 액세스 토큰 값                                  |
-| expires_in   | `Integer` | 액세스 토큰 만료 시간(초)                                    |
-| scope        | `String`  | 인증된 어플리케이션의 정보 조회 권한 범위 범위가 여러 개일 경우, 공백으로 구분 |
+| Name         | Type      | Length | Description                                                  |
+| :----------- | :-------- | ------ | :----------------------------------------------------------- |
+| token_type   | `String`  | 6      | 토큰 타입, `bearer`로 고정                                   |
+| access_token | `String`  | 500    | 어플리케이션 액세스 토큰 값                                  |
+| expires_in   | `Integer` |        | 액세스 토큰 만료 시간(초)                                    |
+| scope        | `String`  | 50     | 인증된 어플리케이션의 정보 조회 권한 범위 범위가 여러 개일 경우, 공백으로 구분 |
 
 
 
@@ -202,14 +202,14 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ## Response
 
-| Name                     | Type      | Description                                                  |
-| :----------------------- | :-------- | :----------------------------------------------------------- |
-| token_type               | `String`  | 토큰 타입, `bearer`로 고정                                   |
-| access_token             | `String`  | 사용자 액세스 토큰 값                                        |
-| expires_in               | `Integer` | 액세스 토큰 만료 시간(초)                                    |
-| refresh_token            | `String`  | 사용자 리프레시 토큰 값                                      |
-| refresh_token_expires_in | `Integer` | 리프레시 토큰 만료 시간(초)                                  |
-| scope                    | `String`  | 인증된 사용자의 정보 조회 권한 범위 범위가 여러 개일 경우, 공백으로 구분 |
+| Name                     | Type      | Length | Description                                                  |
+| :----------------------- | :-------- | ------ | :----------------------------------------------------------- |
+| token_type               | `String`  | 6      | 토큰 타입, `bearer`로 고정                                   |
+| access_token             | `String`  | 500    | 사용자 액세스 토큰 값                                        |
+| expires_in               | `Integer` |        | 액세스 토큰 만료 시간(초)                                    |
+| refresh_token            | `String`  | 500    | 사용자 리프레시 토큰 값                                      |
+| refresh_token_expires_in | `Integer` |        | 리프레시 토큰 만료 시간(초)                                  |
+| scope                    | `String`  | 50     | 인증된 사용자의 정보 조회 권한 범위 범위가 여러 개일 경우, 공백으로 구분 |
 
 
 
@@ -291,14 +291,14 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ## Response
 
-| Name                     | Type      | Description                                                  |
-| :----------------------- | :-------- | :----------------------------------------------------------- |
-| token_type               | `String`  | 토큰 타입, `bearer`로 고정                                   |
-| access_token             | `String`  | 사용자 액세스 토큰 값                                        |
-| expires_in               | `Integer` | 액세스 토큰 만료 시간(초)                                    |
-| refresh_token            | `String`  | 사용자 리프레시 토큰 값                                      |
-| refresh_token_expires_in | `Integer` | 리프레시 토큰 만료 시간(초)                                  |
-| scope                    | `String`  | 인증된 사용자의 정보 조회 권한 범위 범위가 여러 개일 경우, 공백으로 구분 |
+| Name                     | Type      | Length | Description                                                  |
+| :----------------------- | :-------- | ------ | :----------------------------------------------------------- |
+| token_type               | `String`  | 6      | 토큰 타입, `bearer`로 고정                                   |
+| access_token             | `String`  | 500    | 사용자 액세스 토큰 값                                        |
+| expires_in               | `Integer` |        | 액세스 토큰 만료 시간(초)                                    |
+| refresh_token            | `String`  | 500    | 사용자 리프레시 토큰 값                                      |
+| refresh_token_expires_in | `Integer` |        | 리프레시 토큰 만료 시간(초)                                  |
+| scope                    | `String`  | 50     | 인증된 사용자의 정보 조회 권한 범위 범위가 여러 개일 경우, 공백으로 구분 |
 
 
 
@@ -373,9 +373,9 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 
 ## Response
 
-| Name         | Type     | Description |
-| :----------- | :------- | :---------- |
-| revoke_token | `String` | 만료토큰    |
+| Name         | Type     | Length | Description |
+| :----------- | :------- | ------ | :---------- |
+| revoke_token | `String` | 500    | 만료토큰    |
 
 ## Sample
 
