@@ -14,6 +14,7 @@
 [2.Application Access Token 발급 API](#Application-Access-Token-발급-API)</br>
 [3.Token 검증 API](#Token-검증-API)</br>
 [4.Token 갱신 API](#Token-갱신-API)</br>
+[5.Token 만료 API](#Token-만료-API)</br>
 
 # User Access Token 발급 API
 
