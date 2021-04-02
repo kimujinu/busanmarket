@@ -33,7 +33,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 | Name         | Type     | Description                     | Required |
 | :----------- | :------- | :------------------------------ | :------- |
 | grant_type   | `String` | `authorization_code`로 전달     | O        |
-| client_id    | `String` | 인증서버에서 받급받은 client_id | O        |
+| scopte    | `String` | 'read' 고정 | O        |
 | redirect_uri | `String` | 인증코드 Redirect URI           | O        |
 | code         | `String` | 인증코드                        | O        |
 
@@ -59,7 +59,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 ```shell
 curl -v -X POST http://bastion.o2obusan.com/v1/oauth/token \
  -d 'grant_type=authorization_code' \
- -d 'client_id={CLIENT_ID}' \
+ -d 'scope=read' \
  -d 'redirect_uri={REDIRECT_URI}' \
  -d 'code={AUTHORIZATION_CODE}'
 ```
