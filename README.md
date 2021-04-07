@@ -18,6 +18,6 @@ since : 2021-01-16
 [2. Token 관련 API](./apis/token.md)<br/>
 [3, 사용자 정보 API](./apis/profile_me.md)
 
-## 주문관련 API
+## 통합 API
 
-[1. 주문 API](./apis/order.md)<br/>
+[1. 주소관련 API](./apis/address.md)<br/>[2. 결제관련 API](./apis/payment.md)
